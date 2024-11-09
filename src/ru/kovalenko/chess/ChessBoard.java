@@ -1,5 +1,5 @@
 package ru.kovalenko.chess;
-
+//TODO: implements castling, upgrade moveToPosition
 public class ChessBoard {
     public ChessPiece[][] board = new ChessPiece[8][8]; // creating a field for game
     String nowPlayer;
@@ -25,6 +25,14 @@ public class ChessBoard {
                 return true;
             } else return false;
         } else return false;
+    }
+
+    boolean castling0() {
+        return false;
+    }
+
+    boolean castling7() {
+        return false;
     }
 
     public void printBoard() {  //print board in console
