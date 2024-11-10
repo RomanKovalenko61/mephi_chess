@@ -7,7 +7,9 @@ public class King extends ChessPiece {
 
     @Override
     boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        return false;
+        int diffLine = Math.abs(line - toLine);
+        int diffColumn = Math.abs(column - toColumn);
+        return diffLine == 0 && diffColumn == 1 || diffLine == 1 && diffColumn == 0 || diffLine == 1 && diffColumn == 1;
     }
 
     @Override
