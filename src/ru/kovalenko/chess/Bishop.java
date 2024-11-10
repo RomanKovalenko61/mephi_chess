@@ -7,7 +7,9 @@ public class Bishop extends ChessPiece {
 
     @Override
     boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        return false;
+        int diffLine = Math.abs(line - toLine);
+        int diffColumn = Math.abs(column - toColumn);
+        return diffLine == diffColumn && diffLine != 0;
     }
 
     @Override
