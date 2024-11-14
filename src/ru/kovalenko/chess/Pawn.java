@@ -11,49 +11,40 @@ public class Pawn extends ChessPiece {
         if (!chessBoard.checkPos(toLine) || !chessBoard.checkPos(toColumn)) {
             return false;
         }
-        // Белая пешка
+        int diffLine = Math.abs(line - toLine);
+        int diffColumn = Math.abs(column - toColumn);
+        if (diffLine > 2 || diffColumn > 1 || diffLine == 0 && diffColumn == 0) {
+            return false;
+        }
+
         if (chessBoard.board[line][column].getColor().equals("White")) {
-            // Рывок
             ChessPiece forward = chessBoard.board[line + 1][column];
             if (line == 1 && toLine == 3 && column == toColumn) {
                 ChessPiece forward2 = chessBoard.board[line + 2][column];
                 return forward == null && forward2 == null;
-            }
-            // Ход только на одну линию
-            if (line + 1 != toLine) {
-                return false;
+            } else if (diffLine == 1 && column == toColumn) {
+                return forward == null;
+            } else if (diffLine == 1 && diffColumn == 1) {
+                ChessPiece attacked = chessBoard.board[line + 1][toColumn];
+                return attacked != null && attacked.getColor().equals("Black");
             } else {
-                // Простой ход вперед или атака
-                if (column == toColumn) {
-                    return forward == null;
-                } else if (Math.abs(column - toColumn) == 1) {
-                    ChessPiece attacked = chessBoard.board[toLine][toColumn];
-                    return attacked.getColor().equals("Black");
-                }
+                return false;
             }
-            return false;
         }
-        // Черная пешка
+
         if (chessBoard.board[line][column].getColor().equals("Black")) {
-            // Рывок
             ChessPiece forward = chessBoard.board[line - 1][column];
             if (line == 6 && toLine == 4 && column == toColumn) {
                 ChessPiece forward2 = chessBoard.board[line - 2][column];
                 return forward == null && forward2 == null;
-            }
-            // Ход только на одну линию
-            if (line - 1 != toLine) {
-                return false;
+            } else if (diffLine == 1 && column == toColumn) {
+                return forward == null;
+            } else if (diffLine == 1 && diffColumn == 1) {
+                ChessPiece attacked = chessBoard.board[line - 1][toColumn];
+                return attacked != null && attacked.getColor().equals("White");
             } else {
-                // Простой ход вперед или атака
-                if (column == toColumn) {
-                    return forward == null;
-                } else if (Math.abs(column - toColumn) == 1) {
-                    ChessPiece attacked = chessBoard.board[toLine][toColumn];
-                    return attacked.getColor().equals("White");
-                }
+                return false;
             }
-            return false;
         }
         return false;
     }
