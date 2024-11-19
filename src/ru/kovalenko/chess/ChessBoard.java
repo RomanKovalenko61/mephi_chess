@@ -38,6 +38,7 @@ public class ChessBoard {
                 if (board[0][0].getColor().equals("White") && board[0][4].getColor().equals("White") &&
                         board[0][0].check && board[0][4].check &&
                         !new King("White").isUnderAttack(this, 0, 4) &&  // check this position not in under attack
+                        !new King("White").isUnderAttack(this, 0, 3) &&
                         !new King("White").isUnderAttack(this, 0, 2)) { // check that position not in under attack
                     board[0][4] = null;
                     board[0][2] = new King("White");
@@ -56,6 +57,7 @@ public class ChessBoard {
                 if (board[7][0].getColor().equals("Black") && board[7][4].getColor().equals("Black") &&
                         board[7][0].check && board[7][4].check &&
                         !new King("Black").isUnderAttack(this, 7, 4) &&  // check this position not in under attack
+                        !new King("Black").isUnderAttack(this, 7, 3) &&
                         !new King("Black").isUnderAttack(this, 7, 2)) { // check that position not in under attack
                     board[7][4] = null;
                     board[7][2] = new King("Black");
@@ -78,6 +80,7 @@ public class ChessBoard {
                 if (board[0][7].getColor().equals("White") && board[0][4].getColor().equals("White") &&
                         board[0][7].check && board[0][4].check &&
                         !new King("White").isUnderAttack(this, 0, 4) &&  // check this position not in under attack
+                        !new King("White").isUnderAttack(this, 0, 5) &&
                         !new King("White").isUnderAttack(this, 0, 6)) { // check that position not in under attack
                     board[0][4] = null;
                     board[0][6] = new King("White");
@@ -96,6 +99,7 @@ public class ChessBoard {
                 if (board[7][7].getColor().equals("Black") && board[7][4].getColor().equals("Black") &&
                         board[7][7].check && board[7][4].check &&
                         !new King("Black").isUnderAttack(this, 7, 4) &&  // check this position not in under attack
+                        !new King("Black").isUnderAttack(this, 7, 5) &&
                         !new King("Black").isUnderAttack(this, 7, 6)) { // check that position not in under attack
                     board[7][4] = null;
                     board[7][6] = new King("Black");
