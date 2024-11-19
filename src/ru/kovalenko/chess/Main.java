@@ -2,7 +2,7 @@ package ru.kovalenko.chess;
 
 import java.util.Scanner;
 
-//TODO: implement methods in classes
+
 public class Main {
 
     public static ChessBoard buildBoard() {
@@ -12,7 +12,7 @@ public class Main {
         board.board[0][1] = new Horse("White");
         board.board[0][2] = new Bishop("White");
         board.board[0][3] = new Queen("White");
-//        board.board[0][4] = new King("White");
+        board.board[0][4] = new King("White");
         board.board[0][5] = new Bishop("White");
         board.board[0][6] = new Horse("White");
         board.board[0][7] = new Rook("White");
@@ -29,7 +29,7 @@ public class Main {
         board.board[7][1] = new Horse("Black");
         board.board[7][2] = new Bishop("Black");
         board.board[7][3] = new Queen("Black");
-//        board.board[7][4] = new King("Black");
+        board.board[7][4] = new King("Black");
         board.board[7][5] = new Bishop("Black");
         board.board[7][6] = new Horse("Black");
         board.board[7][7] = new Rook("Black");
